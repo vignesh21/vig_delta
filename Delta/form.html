@@ -1,0 +1,429 @@
+<html>
+<head><title>Form</title>
+<div id="bg">
+<h1 id="head"><center>COLLEGE APPLICATION FORM</center></h1>
+</h1></head>
+<style>
+#message
+{
+visibility:hidden;
+font-family:engravers MT;
+font-size:15px;
+color:chocolate;
+border-style:dashed;
+border-width:1px;
+border-color:brown;
+border-radius:5px;
+font-weight:stronger;
+background-color:gold;
+}
+#dmessage
+{
+visibility:hidden;
+font-family:engravers MT;
+font-size:15px;
+color:chocolate;
+border-style:dashed;
+border-width:1px;
+border-color:brown;
+border-radius:5px;
+font-weight:stronger;
+background-color:gold;
+}
+#mmess
+{
+visibility:hidden;
+font-family:engravers MT;
+font-size:15px;
+color:chocolate;
+border-style:dashed;
+border-width:1px;
+border-color:brown;
+border-radius:5px;
+font-weight:stronger;
+background-color:gold;
+}
+#rmess
+{
+visibility:hidden;
+font-family:engravers MT;
+font-size:15px;
+color:chocolate;
+border-style:dashed;
+border-width:1px;
+border-color:brown;
+border-radius:5px;
+font-weight:stronger;
+background-color:gold;
+}
+#pmess
+{
+visibility:hidden;
+font-family:engravers MT;
+font-size:15px;
+color:chocolate;
+border-style:dashed;
+border-width:1px;
+border-color:brown;
+border-radius:5px;
+font-weight:stronger;
+background-color:gold;
+}
+#p1mess
+{
+visibility:hidden;
+font-family:engravers MT;
+font-size:15px;
+color:chocolate;
+border-style:dashed;
+border-width:1px;
+border-color:brown;
+border-radius:5px;
+font-weight:stronger;
+background-color:gold;
+}
+#smess
+{
+visibility:hidden;
+font-family:engravers MT;
+font-size:15px;
+color:chocolate;
+border-style:dashed;
+border-width:1px;
+border-color:brown;
+border-radius:5px;
+font-weight:stronger;
+background-color:gold;
+}
+#drop
+{
+background-color:black;
+color:green;
+text-transform:uppercase;
+}
+#school 
+{
+background-color:brown;
+color:chocolate;
+text-transform:uppercase;
+font-family:comic sans ms;
+}
+#bg
+{
+border-style:solid;
+border-width:10px;
+background-color:chocolate;
+border-radius:20px;
+font-color:brown;
+font-family:century schoolbook;
+font-weight:200;
+}
+#field
+{
+border-style:double;
+border-width:2px;
+border-radius:15px;
+border-color:gold;
+background-color:silver;
+color:black;
+font-weight:bolder;
+}
+#button
+{
+border-style:solid;
+border-width:2px;
+border-radius:20px;
+background-color:silver;
+color:gray;
+font-family:imprint MT shadow;
+font-weight:bolder;
+width:100px;
+height:25px;
+}
+#button:hover
+{
+background-color:gold;
+color:brown;
+border-color:brown;
+border-style:solid;
+}
+#tab
+{
+color:brown;
+background-color:gold;
+border-style:solid;
+border-width:10px;
+border-radius:15px;
+border-color:black;
+}
+#tab1
+{
+border-style:dashed;
+border-width:1px;
+border-radius:15px;
+border-color:brown;
+}
+#head
+{
+border-style:solid;
+border-width:1px;
+border-color:black;
+background-color:brown;
+color:gold;
+font-family:century schoolbook;
+font-weight:bold;
+}
+#submit
+{
+border-style:solid;
+border-width:1px;
+background-color:brown !important ;
+}
+</style>
+<script language="javascript">
+function validate()
+{
+return name();
+}
+function name()
+{
+var pattern=/[^a-z]/i;
+if(!pattern.test(document.form.fname.value))
+{
+                  if(document.form.fname.value.charAt(0)===document.form.fname.value.charAt(0).toUpperCase() && document.form.fname.value!=="")                                                    { 
+                                   return date();
+                                }
+                  else
+                               {
+                                  document.getElementById('message').style.visibility='visible';
+                                  return false;
+                               }
+}
+else
+alert("Only alphabets");
+return false;
+}
+function date()
+{
+var date=document.form.dob.value;
+var validformat=/^\d{2}\/\d{2}\/\d{4}$/; 
+if (!validformat.test(date))
+{
+document.getElementById('dmessage').style.visibility='visible';
+return false;
+}
+else
+{
+var month=date.split("/")[0];
+var day=date.split("/")[1];
+var year=date.split("/")[2];
+var dayobj = new Date(year, month-1, day);
+           if ((dayobj.getMonth()+1!=month)||(dayobj.getDate()!=day)||(dayobj.getFullYear()!=year))
+                   {
+                          document.getElementById('dmessage').style.visibility='visible';
+                         return false;
+                         date.select();
+                   }
+         else
+                 return mail();
+}
+}
+function mail()
+{
+var email=document.form.mail.value;
+var pattern=/^([a-zA-Z0-9_.-])+@([a-zA-Z0-9_.-])+\.([a-zA-Z])+([a-zA-Z])+$/;
+if(email!=="" && pattern.test(email))
+{
+return roll();
+}
+else
+document.getElementById('mmess').style.visibility='visible';
+return false;
+}
+function roll()
+{
+var rno=document.form.roll.value;
+var pattern=/^\d$/;
+if(rno==="" && !pattern.test(rno))
+{
+document.getElementById('rmess').style.visibility='visible';
+return false;
+rno.select();
+}
+else
+{
+               if(rno.length!=10)
+                         {
+                              document.getElementById('rmess').style.visibility='visible';
+                              return false;
+                              rno.select();
+                         }
+               else 
+                      return pass();
+}
+}
+function pass()
+{
+var pw=document.form.pwd.value; 
+var pw1=document.form.pwd1.value;
+var pattern=/[^a-z\d\_]/i;
+if(pw==="" && !pattern.test(pw))
+{
+document.getElementById('pmess').style.visibility='visible';
+return false;
+}
+else
+{
+               if(pw===pw1)
+                 {
+                       return school();
+                  }
+                else
+                   {
+                            document.getElementById('p1mess').style.visibility='visible';
+                             return false;
+                    }
+}
+}
+function school()
+{
+if(document.form.s.value==="Select School")
+{
+document.getElementById('smess').style.visibility='visible';
+return false;
+}
+else
+return ValidateCompare();
+}
+function ValidateCompare()
+{
+var check=0;
+var c = document.getElementsByName('club[]');
+for(var i=0;i<c.length;i++)
+{
+   if (c[i].checked)
+         {
+             check++;
+         }
+}
+if(check<3)
+{
+alert('You must choose at least 3 clubs.');
+return false;
+}
+else
+return img();
+}
+function img()
+{
+if(confirm("Do you want to upload photo?"))
+{
+var file=document.getElementById('file').value;
+var dot=file.lastIndexOf('.');
+var fext=file.substring(dot+1,file.length);
+var ext=new Array("jpg","png");
+for(var i=0;i<ext.length;i++)
+              { 
+                       if(ext[i]==fext)
+                       return true;
+                       else
+                               {
+                                       alert("Only jpg,png");
+                                       return false;
+                                }
+               }
+}
+else
+return true;
+}
+</script>
+<body>
+<form name="form" action="apply.php" enctype="multipart/form-data" method="post" onsubmit="return validate()">
+<center><table cellspacing=10px cellpadding=10px id="tab">
+<tr>
+<td>Photo:</td>
+<td><input type="file" name="file" id="field"></td>
+</tr>
+<tr>
+<td>Name:</td>
+<td><input type="text" name="fname" id="field"><span id="message">  Enter your name,beginning with a uppercase  </span></td>
+</tr>
+<tr>
+<td>Rollno:</td>
+<td><input type="text" name="roll" id="field"><span id="rmess">Enter roll no.,with 10 digits</span></td>
+</tr>
+<tr>
+<td>DOB:</td>
+<td><input type="text" name="dob" id="field" value="mm/dd/yyyy"><span id="dmessage">Invalid Date Format</span></td>
+</tr>
+<tr>
+<td>email:</td>
+<td><input type="text" name="mail" id="field"><span id="mmess">Invalid email</span></td>
+</tr>
+<tr>
+<td>Department:</td>
+<td><input type="text" name="dept" id="field"></td>
+</tr>
+<tr>
+<td>Password:</td>
+<td><input type="password" name="pwd" id="field"><span id="pmess">Enter a valid password(alphanumeric&_)</span></td>
+</tr>
+<tr>
+<td>Reconfirmation:</td>
+<td><input type="password" name="pwd1" id="field"><span id="p1mess">Passwords don't match!</span></td>
+</tr>
+<tr>
+<td>Address:</td>
+<td><textarea name="add" id="field"></textarea></td>
+</tr>
+<tr>
+<td>Gender:</td>
+<td><input type="radio" name="sex" id="rad" value="male">Male<br><input type="radio" name="sex" id="rad" value="female">Female</td>
+</tr>
+<tr><div id="drop">
+<td>Schooling:</td>
+<td><select name="s" id="school">
+<option value="Select School">Select School</option>
+<option value="Chettinad Vidyashram">Chettinad Vidyashram</option>
+<option value="Padma Seshadri">Padma Seshadri</option>
+<option value="Vidya Mandir">Vidya Mandir</option>
+<option value="DAV">DAV</option>
+<option value="Delhi Public School">Delhi Public School</option>
+<option value="Kendriya Vidyalaya">Kendriya Vidyalaya</option>
+<option value="Shankara Sr. Sec. School">Shankara Sr. Sec. School</option>
+<option value="National Public School">National Public School</option>
+<option value="Gandhi Sr.Sec. School">Gandhi Sr.Sec.School</option>
+<option value="Other School">Other School</option>
+</select></div>
+<span id="smess">Select a school!</span>
+</td>
+</tr>
+<tr>
+<td>Clubs Applied<br>for Inductions</td>
+<td>
+<table id="tab1">
+<tr>
+<td><input type="checkbox" name="club[]" value="Delta" id="check">Delta</td>
+<td><input type="checkbox" name="club[]" value="RMI" id="check">RMI</td>
+<td><input type="checkbox" name="club[]" value="3D" id="check">3rdDimension</td>
+</tr>
+<tr>
+<td><input type="checkbox" name="club[]" value="Spider" id="check">Spider</td>
+<td><input type="checkbox" name="club[]" value="Ecell" id="check">E-cell</td>
+<td><input type="checkbox" name="club[]" value="Feeds" id="check">Feeds</td>
+</tr>
+<tr>
+<td><input type="checkbox" name="club[]" value="Rotaract" id="check">Rotaract</td>
+<td><input type="checkbox" name="club[]" value="Balls by Picasso" id="check">Balls by Picasso</td>
+<td><input type="checkbox" name="club[]" value="Pulse72+" id="check">Pulse72+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table><br>
+<div id="submit">
+</center><br><center><input type="submit" name="Submit" id="button">&nbsp&nbsp
+<input type="reset" name="Reset" id="button"></center></div><br>
+</form>
+</div></body>
+</html>
